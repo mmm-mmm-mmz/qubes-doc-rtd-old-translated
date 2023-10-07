@@ -1,0 +1,17 @@
+name: Dispatch to repo
+on: [push, workflow_dispatch]
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo: ["mmm-mmm-mmz/qubes-doc-rtd-old"]
+    steps:
+      - name: Push to repo
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.DOC_REPO_SECRET }}
+          repository: ${{ matrix.repo }}
+          event-type: update
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "module": "_translated", "branch": "test-github-action"}'
+
