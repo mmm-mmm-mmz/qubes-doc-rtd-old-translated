@@ -13,5 +13,5 @@ jobs:
           token: ${{ secrets.DOC_REPO_SECRET }}
           repository: ${{ matrix.repo }}
           event-type: update
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "module": "mmm-mmm-mmz/qubes-doc-rtd-old-translated", "branch": "test-github-action"}'
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "module": "_translated", "branch": "test-github-action"}'
 
